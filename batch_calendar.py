@@ -53,6 +53,7 @@ coach_data = pd.read_csv("https://docs.google.com/spreadsheets/d/1xiHrVfM0sWgXr8
 
 batch_data_raw = pd.read_csv(performance_sheet_url, skiprows = 1)
 batch_data_raw = batch_data_raw[batch_data_raw['Batch Name'].notnull()]
+batch_data_raw = batch_data_raw[batch_data_raw['Batch close date'].isnull()]
 batch_data_raw = batch_data_raw[~batch_data_raw['Batch Name'].str.contains('Summer')]
 batch_data_raw = batch_data_raw[['Batch Name','Days', 'Time - Day 1', 'Time - Day 2', 'Batch start date']]
 batch_data_raw['Batch Name'] = batch_data_raw['Batch Name'].str.upper()
